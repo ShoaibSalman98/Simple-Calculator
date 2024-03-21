@@ -15,7 +15,7 @@ const answer = await inquirer.prompt([{
      message: (chalk.bold.green.underline("Select option to perform your desired operaton =")),
      type: "list",
      name: "operator",
-     choices: ["Addition", "Substraction", "Division", "Multiplication"],
+     choices: ["Addition", "Substraction", "Division", "Multiplication", "Percentage","Exponent", "Modulus"],
 
     },
 ]);
@@ -34,7 +34,14 @@ console.log(chalk.bold.yellowBright.underline("your answer is =",(answer.numone 
 
 } else if (answer.operator === "Multiplication") {
     console.log("your answer is =",(answer.numone * answer.numtwo));
-} else {
-    console.log("Please Enter a Valid Number");
-}
+
+}  else if (answer.operator === "Percentage") {
+    console.log("your answer is =",(answer.numone / answer.numtwo * 100), "%");
+
+} else if (answer.operator === "Exponent") {
+    console.log("your answer is =",(answer.numone ** answer.numtwo ));
+
+ } else if (answer.operator === "Modulus") {
+    console.log("your answer is =",(answer.numone % answer.numtwo ));
+} else  console.log("Please Enter a Valid Number");
 
